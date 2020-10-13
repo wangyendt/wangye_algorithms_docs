@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}
+\SetKw{Continue}{continue}
+\SetKw{Break}{break}
+\begin{document}
+	\begin{algorithm}[H]
+		\caption{Find local extremum}\label{algorithm}
+		\KwData{minimum valid slope $T$, minimum detect local count $C$, buffer size $L$, sequence $X_1,...,X_N$}
+		\KwResult{local extremum $E$}
+		Initialize $count\leftarrow 0$\;
+		Initialize $E\leftarrow 0$\;
+		\For(){$i\leftarrow 1$ \KwTo $L-1$}{
+			\lIf{$N-i-2<0$}{\Break}
+			$D_1\leftarrow X_N-X_{N-i}$\;
+			$D_2\leftarrow X_N-X_{N-i-1}$\;
+			$D_3\leftarrow X_N-X_{N-i-2}$\;
+			\uIf(\tcc*[f]{local extremum E not updated yet.}){$E==0$}{
+				\uIf{$\min\{D_3,D_2,D_1\}>T$ or $\max\{D_3,D_2,D_1\}<-T$}{
+					$E\leftarrow D_1$\;
+				}
+				\Continue\;
+			}
+			\uIf{$0<E<D_1$ or $D_1<E<0$}{
+				$E\leftarrow D_1$\;
+				$count\leftarrow 0$\;
+			}\uElse{
+				$count\leftarrow count+1$\;
+			}
+			\uIf(\tcc*[f]{Conditions satisfied for C times.}){$count>C$}{
+				\Break\;
+			}
+		}
+		\Return{$E$}
+	\end{algorithm}
+\end{document}
