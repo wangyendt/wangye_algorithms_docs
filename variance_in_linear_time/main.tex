@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\SetKw{Yield}{yield}
+\begin{document}
+	\begin{algorithm}[H]
+		\caption{one pass sliding variance in linear time}\label{algorithm}
+        \KwData{
+            sliding window length $L$,
+            data sequence $X_1,...,X_N$
+            }
+		\KwResult{variance of sequence in sliding window $v_1,...,v_N$}
+		Initialize $mean\leftarrow 0$\;
+        Initialize $sos\leftarrow 0$\;
+        Since $\sum\limits_{i=1}^{n}(x_i-\bar{x})^2=
+                \sum\limits_{i=1}^{n}x_i^2-2(n\bar{x})\cdot(\bar{x})+n\cdot\bar{x}^2=
+                \sum\limits_{i=1}^{n}x_i^2-n\cdot \bar{x}^2$, we have:\\
+        \For(){$i\leftarrow 1$ \KwTo $N$}{
+            $mean\leftarrow mean+\frac{X_i}{L}$\;
+            $sos\leftarrow sos+X_i^2$\;
+            \If(){$i>L$}{
+                $mean\leftarrow mean-\frac{X_{i-L}}{L}$\;
+                $sos\leftarrow sos-X_{i-L}^2$\;
+            }
+            $v_i\leftarrow sos-L\cdot mean^2$\;
+            $\Yield$ $v_i$\;
+        }
+	\end{algorithm}
+\end{document}

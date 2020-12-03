@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\SetKwRepeat{Do}{do}{while}
+\SetKw{Continue}{continue}
+\SetKw{Break}{break}
+\begin{document}
+	\begin{algorithm}[H]
+		\caption{bisect right in rotated sorted array}\label{algorithm}
+        \KwData{
+            start searching index $lo$, 
+            end searching index $hi$, 
+            element to locate $x$, 
+            rotated sorted array $X_1,...,X_N$
+            }
+		\KwResult{position of element to locate $p$}
+		Initialize $lo_{backup}\leftarrow lo$\;
+        Initialize $hi_{backup}\leftarrow hi$\;
+        Initialize $p\leftarrow 0$\;
+        \uIf{$X_{hi-1}\leq x < X_{lo}$ }{
+            $p\leftarrow hi-1$\;
+        }\Else{
+            \While{$lo<hi$}{
+                $mid\leftarrow (lo+hi)/2$\;
+                \uIf{$X_{lo}<X_{mid}$}{
+                    \uIf{$X_{mid}\leq x$}{
+                        $lo\leftarrow mid$\;
+                    }\Else{
+                        \uIf{$X_{lo}\leq x < X_{mid}$}{
+                            $hi\leftarrow mid$\;
+                        }\Else{
+                            $lo\leftarrow mid$\;
+                        }
+                    }
+                }\uElseIf{$X_{lo}==X_{mid}$}{
+                    \uIf{$hi-lo==1$}{
+                        $hi\leftarrow mid$\;
+                    }\Else{
+                        $lo\leftarrow mid$\;
+                    }
+                }\Else{
+                    \uIf{$x<X_{mid}$}{
+                        $hi\leftarrow mid$\;
+                    }\Else{
+                        \uIf{$X_{mid}\leq x<X_{lo}$}{
+                            $lo\leftarrow mid$\;
+                        }\Else{
+                            $hi\leftarrow mid$\;
+                        }
+                    }
+                }
+            }
+            $p\leftarrow hi$\;
+        }
+		\Return{$max(min(hi_{backup},p),lo_{backup})$}
+	\end{algorithm}
+\end{document}

@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.8.19)  13 OCT 2020 17:46
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.8.19)  30 NOV 2020 12:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/Work/github/code/latex/oppo_algorithm/find_local_extremum/main
-(d:/Work/github/code/latex/oppo_algorithm/find_local_extremum/main.tex
+**d:/Work/github/code/latex/wangye_algorithms_docs/find_local_extremum/main
+(d:/Work/github/code/latex/wangye_algorithms_docs/find_local_extremum/main.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-08-07> (d:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -113,11 +113,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  1436 strings out of 479699
- 24363 string characters out of 5892507
+ 24387 string characters out of 5892507
  276318 words of memory out of 5000000
  18728 multiletter control sequences out of 15000+600000
  535128 words of font info for 34 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 32i,18n,30p,368b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,18n,30p,376b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (1 page).
